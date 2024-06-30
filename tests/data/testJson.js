@@ -1,4 +1,5 @@
 const testCases = [
+    // C++ test cases
     {
         name: 'cpp : hello world',
         reqObject: {
@@ -38,8 +39,9 @@ const testCases = [
             status: 200,
             error: 0,
         },
-
     },
+
+    // Node.js test cases
     {
         name: 'nodejs : hello world',
         reqObject: {
@@ -70,6 +72,8 @@ const testCases = [
             error: 0,
         },
     },
+
+    // Python test cases
     {
         name: 'python : hello world',
         reqObject: {
@@ -103,6 +107,8 @@ const testCases = [
             error: 0,
         },
     },
+
+    // C test cases
     {
         name: 'c : hello world',
         reqObject: {
@@ -141,13 +147,14 @@ const testCases = [
             error: 0,
         },
     },
+
+    // Java test cases
     {
-        name: 'java : print stdin',
+        name: 'java : hello world',
         reqObject: {
             language: 'java',
             script:
-                'import java.util.Scanner;\n' +
-                'public class Solution {\n' +
+                'public class HelloWorld {\n' +
                 '    public static void main(String[] args) {\n' +
                 '        System.out.println("hello world");\n' +
                 '    }\n' +
@@ -183,8 +190,10 @@ const testCases = [
             error: 0,
         },
     },
+
+    // Ruby test cases
     {
-        name: 'ruby : print hello world',
+        name: 'ruby: print hello world',
         reqObject: {
             language: 'ruby',
             script:
@@ -211,6 +220,10 @@ const testCases = [
             error: 0,
         },
     },
+
+    // Additional test cases for existing languages
+
+    // TLE test case
     {
         name: 'TLE test',
         reqObject: {
@@ -223,6 +236,8 @@ const testCases = [
             error: 1,
         },
     },
+
+    // MLE test cases
     {
         name: 'MLE test',
         reqObject: {
@@ -274,6 +289,8 @@ const testCases = [
             error: 1,
         },
     },
+
+    // OpenAI promptv1 and promptv2 test cases
     {
         name: 'OPEN AI test promptv1',
         reqObject: {
@@ -298,6 +315,125 @@ const testCases = [
             error: 0,
         },
     },
-]
 
-module.exports = { testCases }
+    // PHP test cases
+    {
+        name: 'php : hello world',
+        reqObject: {
+            language: 'php',
+            script: '<?php echo "hello world"; ?>',
+        },
+        expectedResponse: {
+            val: 'hello world',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'php : print stdin',
+        reqObject: {
+            language: 'php',
+            script:
+                '<?php\n' +
+                '$handle = fopen ("php://stdin","r");\n' +
+                'while($line = fgets($handle)) {\n' +
+                '    echo $line;\n' +
+                '}\n' +
+                'fclose($handle);\n' +
+                '?>',
+            stdin: '1 2 3',
+        },
+        expectedResponse: {
+            val: '1 2 3\n',
+            status: 200,
+            error: 0,
+        },
+    },
+
+    // Swift test cases
+    {
+        name: 'swift : hello world',
+        reqObject: {
+            language: 'swift',
+            script: 'print("hello world")',
+        },
+        expectedResponse: {
+            val: 'hello world\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'swift : print stdin',
+        reqObject: {
+            language: 'swift',
+            script:
+                'import Foundation\n' +
+                'while let line = readLine() {\n' +
+                '    print(line)\n' +
+                '}',
+            stdin: '1 2 3',
+        },
+        expectedResponse: {
+            val: '1\n2\n3\n',
+            status: 200,
+            error: 0,
+        },
+    },
+
+    // Rust test cases
+    {
+        name: 'rust : hello world',
+        reqObject: {
+            language: 'rust',
+            script: 'fn main() {\n    println!("hello world");\n}\n',
+        },
+        expectedResponse: {
+            val: 'hello world\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'rust : print stdin',
+        reqObject: {
+            language: 'rust',
+            script: 'use std::io::{self, BufRead};\n\nfn main() {\n    let stdin = io::stdin();\n    for line in stdin.lock().lines() {\n        println!("{}", line.unwrap());\n    }\n}\n',
+            stdin: '1 2 3',
+        },
+        expectedResponse: {
+            val: '1 2 3\n',
+            status: 200,
+            error: 0,
+        },
+    },
+
+    // Go test cases
+    {
+        name: 'go : hello world',
+        reqObject: {
+            language: 'go',
+            script: 'package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("hello world")\n}\n',
+        },
+        expectedResponse: {
+            val: 'hello world\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'go : print stdin',
+        reqObject: {
+            language: 'go',
+            script: 'package main\n\nimport (\n    "bufio"\n    "os"\n)\n\nfunc main() {\n    scanner := bufio.NewScanner(os.Stdin)\n    for scanner.Scan() {\n        fmt.Println(scanner.Text())\n    }\n}\n',
+            stdin: '1 2 3',
+        },
+        expectedResponse: {
+            val: '1 2 3\n',
+            status: 200,
+            error: 0,
+        },
+    },
+];
+
+module.exports = { testCases };
